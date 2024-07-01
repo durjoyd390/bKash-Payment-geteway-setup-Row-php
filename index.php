@@ -1,10 +1,10 @@
 <?php
-$callbackURL = '';
+$callbackURL = 'http://localhost/bp/';
 
-$app_key ='';
-$app_secret ='';
-$username ='';
-$password ='';
+$app_key ='0vWQuCRGiUX7EPVjQDr0EUAYtc';
+$app_secret ='jcUNPBgbcqEDedNKdvE4G1cAK7D3hCjmJccNPZZBq96QIxxwAMEx';
+$username ='01770618567';
+$password ='D7DaC<*E*eG';
 $base_url = 'https://tokenized.sandbox.bka.sh';
 // https://tokenized.pay.bka.sh    for live
 
@@ -63,6 +63,12 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 
 $resultdata = curl_exec($ch);
 curl_close($ch);
+
+$myfile = fopen("1.txt", "w");
+fwrite($myfile, $resultdata);
+fclose($myfile);
+
+
 $obj = json_decode($resultdata);
 header("Location: " . $obj->{'bkashURL'});
 // End Create Payment
@@ -89,6 +95,11 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 
 $resultdata = curl_exec($ch);
 curl_close($ch);
+
+$myfile = fopen("2.txt", "w");
+fwrite($myfile, $resultdata);
+fclose($myfile);
+
 $obj = json_decode($resultdata);
 
 
